@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum Category: string
+enum CategoryEnum: string
 {
     case Nouvel = "roman";
     case Adventure = "aventure";

@@ -6,14 +6,20 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[ORM\InheritanceType('JOINED')]
+#[UniqueEntity(
+    fields: 'email',
+    message: 'Cet email est déjà utilisé par quelqu\'un d\'autre',
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -23,6 +29,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\Email(
+        message: '{{ value }} doit être un email valide'
+    )]
     private ?string $email = null;
 
     /**
@@ -35,12 +44,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\Length(
+        min: 12,
+        minMessage: 'Doit avoir au minimum 12 caractères'
+    )]
     private ?string $password = null;
 
     #[ORM\Column]
+    #[Assert\DateTime(
+        message: 'La date de création doit être valide'
+    )]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\DateTime(
+        message: 'La date de mise à jour doit être valide'
+    )]
     private ?\DateTime $updatedAt = null;
 
     public function getId(): ?Uuid
