@@ -17,9 +17,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Book
 {
     #[ORM\Id]
-    #[ORM\Column(type: UuidType::NAME, unique: true)]
+    #[ORM\Column(type: 'uuid', unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
+    #[ORM\CustomIdGenerator('doctrine.uuid_generator')]
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 50)]
