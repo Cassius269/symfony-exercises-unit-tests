@@ -40,7 +40,7 @@
         </deprecationTrigger> 
     </source> 
     <extensions> 
-        <bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
+            <!-- Réinitialiser la bdd à chaque nouveau test (optionnel) -->
     </extensions> 
 </phpunit> 
 
