@@ -38,6 +38,8 @@ final class AuthorFactory extends PersistentObjectFactory
         return [
             'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
             'email' => self::faker()->email(),
+            'firstname' => self::faker()->firstName(),
+            'lastname' => self::faker()->lastName(),
             'password' => self::faker()->password(12, 20),
             'roles' => ['ROLE_AUTHOR'],
             'updatedAt' => null
