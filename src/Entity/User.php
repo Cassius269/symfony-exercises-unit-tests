@@ -29,7 +29,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180)]
     #[Assert\Email(
-        message: '{{ value }} doit être un email valide'
+        message: 'L\'email doit être un email valide'
     )]
     private ?string $email = null;
 
@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     #[Assert\Length(
         min: 12,
-        minMessage: 'Doit avoir au minimum 12 caractères'
+        minMessage: 'Le mot de passe doit avoir au minimum 12 caractères'
     )]
     private ?string $password = null;
 
@@ -62,9 +62,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTime $updatedAt = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\Length(
+        min: 3,
+        minMessage: 'Le prénom doit avoir au minimum 3 caractères'
+    )]
     private ?string $firstname = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 3)]
+    #[Assert\Length(
+        min: 3,
+        minMessage: 'Le nom de famille doit avoir au minimum 12 caractères'
+    )]
     private ?string $lastname = null;
 
     public function getId(): ?Uuid

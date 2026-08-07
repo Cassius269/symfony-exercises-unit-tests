@@ -1,0 +1,15 @@
+# Caddyfile
+
+# The domain name of your server
+
+localhost
+
+mercure {
+anonymous
+}
+
+root public/
+php_server {
+hot_reload
+worker ./public/index.php
+}

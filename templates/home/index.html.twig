@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('styles/pages/homepage.css') }}">
+{% endblock %}
+
+{% block title %}Page d'accueil
+{% endblock %}
+
+{% block body %}
+	<h1>Page d'accueil</h1>
+	<section>
+		<h2>Les utilisateurs</h2>
+		<img src="{{asset('img/Elfmeter.jpg')}}" width="400" alt="">
+		{% if users %}
+			<ul>
+				{% for user in users %}
+					<li>{{user}}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+	</section>
+{% endblock %}

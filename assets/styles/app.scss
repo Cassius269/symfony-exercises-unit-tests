@@ -1,0 +1,14 @@
+body {
+    background-color:rgb(242, 164, 108);
+    // background-image: url('../img/Football_pictogram.svg');
+    ul {
+        list-style-type: square;
+        display: flex;
+        justify-content: space-around;
+        // background-color: rgb(255, 255, 255);
+        padding: 1rem 0;
+        li a {
+            text-decoration: none;
+        }
+    }
+}

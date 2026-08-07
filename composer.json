@@ -39,10 +39,14 @@
         "symfony/twig-bundle": "8.1.*",
         "symfony/uid": "8.1.*",
         "symfony/ux-turbo": "^3.2",
+        "symfony/ux-twig-component": "^3.3",
         "symfony/validator": "8.1.*",
         "symfony/web-link": "8.1.*",
         "symfony/yaml": "8.1.*",
+        "symfonycasts/sass-bundle": "^0.10.0",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/inky-extra": "^3.26",
+        "twig/markdown-extra": "^3.28",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
@@ -100,6 +104,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.3",
+        "igor-php/igor-php": "^0.8.1",
         "phpunit/phpunit": "^13.2",
         "symfony/browser-kit": "8.1.*",
         "symfony/css-selector": "8.1.*",
