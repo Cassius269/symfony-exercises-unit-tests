@@ -129,7 +129,7 @@ class AuthorTest extends TestCase
 
         // dd($book->getAuthors()[0]);
         // Assert
-        $this->assertContains($author, $book->getAuthors(), "Auteur similaire non similaire");
+        $this->assertContains($author, $book->getAuthors(), "Auteur non similaire");
         $this->assertContains($book, $author->getBooks(), "Livre similaire non trouvé");
     }
 }
